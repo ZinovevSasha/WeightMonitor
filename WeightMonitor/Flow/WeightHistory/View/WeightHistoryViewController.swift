@@ -89,11 +89,7 @@ final class WeightHistoryViewController: UIViewController {
     }
     
     @objc func addWeight() {
-        let vc = AddWeightViewController()
-        vc.modalTransitionStyle = .crossDissolve
-        let viewModel = AddWeightViewModel()
-        vc.setViewModel(viewModel)        
-        present(vc, animated: true)
+        presentAddWeightViewController()
     }
 }
 
@@ -192,6 +188,14 @@ private extension WeightHistoryViewController {
             }
         }
     }
+    
+    func presentAddWeightViewController(_ id: String? = nil) {
+        let vc = AddWeightViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        let viewModel = AddWeightViewModel(recordId: id)
+        vc.setViewModel(viewModel)
+        present(vc, animated: true)
+    }
 }
 
 extension WeightHistoryViewController: UITableViewDataSource {
@@ -233,11 +237,7 @@ extension WeightHistoryViewController: UITableViewDelegate {
         let editAction = UIContextualAction(style: .normal, title: "Edit") {(action, view, completionHandler) in
             
             let id = self.viewModel?.getRecordIdForIndexPath(indexPath)
-            let vc = AddWeightViewController()
-            vc.modalTransitionStyle = .crossDissolve
-            let viewModel = AddWeightViewModel(recordId: id)
-            vc.setViewModel(viewModel)
-            self.present(vc, animated: true)
+            self.presentAddWeightViewController(id)
             
             completionHandler(true)
         }
