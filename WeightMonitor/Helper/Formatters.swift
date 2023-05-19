@@ -19,7 +19,13 @@ final class Formatters {
     
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ru_RU")       
+        formatter.locale = .current
+        return formatter
+    }()
+    
+    static let measurementFormatter: MeasurementFormatter = {
+        let formatter = MeasurementFormatter()
+        formatter.locale = .current
         return formatter
     }()
 }

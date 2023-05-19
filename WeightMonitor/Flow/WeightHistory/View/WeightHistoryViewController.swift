@@ -39,7 +39,7 @@ final class WeightHistoryViewController: UIViewController {
     }()
     private let newRecordNotification: UILabel = {
         let newRecordNotification = UILabel()
-        newRecordNotification.text = "Добавлено новое измерение"
+        newRecordNotification.text = Strings.WeightHistory.newWeightRecord
         newRecordNotification.textAlignment = .center
         newRecordNotification.backgroundColor = .label
         newRecordNotification.textColor = .systemBackground
@@ -109,7 +109,7 @@ private extension WeightHistoryViewController {
         }
         
         view.backgroundColor = .systemBackground
-        nameOfScreen.text = "Монитор веса"
+        nameOfScreen.text = Strings.WeightHistory.title
         nameOfScreen.font = .systemFont(ofSize: 20, weight: .semibold)
         nameOfScreen.textColor = .label
         
@@ -228,13 +228,12 @@ extension WeightHistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel?.remove(at: indexPath)
-        } else if editingStyle == .insert {
-            print("FDDF")
         }
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editAction = UIContextualAction(style: .normal, title: "Edit") {(action, view, completionHandler) in
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, completionHandler) in
+            guard let self = self else { return }
             
             let id = self.viewModel?.getRecordIdForIndexPath(indexPath)
             self.presentAddWeightViewController(id)

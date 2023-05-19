@@ -1,10 +1,3 @@
-//
-//  Helper.swift
-//  WeightMonitor
-//
-//  Created by Александр Зиновьев on 02.05.2023.
-//
-
 import Foundation
 
 // MARK: - DataProviderDelegate
@@ -67,6 +60,7 @@ final class WeightHistoryViewModel {
         }
     }()
 }
+
 // MARK: - Public
 extension WeightHistoryViewModel: WeightHistoryViewModelProtocol {
     func updateWeightRecords() {
@@ -85,12 +79,8 @@ extension WeightHistoryViewModel: WeightHistoryViewModelProtocol {
         dataProvider?.deleteRecord(indexPath)
     }
     
-    func setWeightUnit() {
-        if weightUnitService.getCurrentUnit().symbol == UnitMass.kilograms.symbol {
-            weightUnitService.currentUnit = UnitMass.kilograms
-        } else {
-            weightUnitService.currentUnit = UnitMass.pounds
-        }
+    func setWeightUnit() {        
+        weightUnitService.currentUnit = weightUnitService.getCurrentUnit()
     }
     
     func setWeightUnit(_ unit: UnitMass) {
@@ -107,7 +97,6 @@ extension WeightHistoryViewModel: WeightHistoryViewModelProtocol {
     }
 }
 
-  
 // MARK: - Private methods
 private extension WeightHistoryViewModel {
     func convertWeightRecordsAndAddDifference(weightRecord: [WeightRecord], currentUnit: UnitMass) -> [WeightHistoryCellViewModel] {
@@ -128,7 +117,7 @@ private extension WeightHistoryViewModel {
                 
         let newUnitWeight = Measurement(value: record.weight, unit: UnitMass.kilograms).converted(to: currentUnit).value
                        
-        let newUnitWeightChange =  Measurement(value: record.weightDifference, unit: UnitMass.kilograms).converted(to: currentUnit).value
+        let newUnitWeightChange =  Measurement(value: record.weightDifference ?? 0, unit: UnitMass.kilograms).converted(to: currentUnit).value
                         
         return WeightRecord(id: record.identifier, date: record.date, weight: newUnitWeight, weightDifference: newUnitWeightChange)
     }
@@ -144,7 +133,7 @@ private extension WeightHistoryViewModel {
             let weightDifference = calculateWeightDifference(record1: record, record2: nextRecord)
             return WeightRecord(id: record.identifier, date: record.date, weight: record.weight, weightDifference: weightDifference)
         } else {
-            return WeightRecord(id: record.identifier, date: record.date, weight: record.weight, weightDifference: .greatestFiniteMagnitude)
+            return WeightRecord(id: record.identifier, date: record.date, weight: record.weight, weightDifference: nil)
         }
     }
 
@@ -167,7 +156,7 @@ private extension WeightHistoryViewModel {
     func setLastRecordWeightDifferenceToNil(records: [WeightRecord]) -> [WeightRecord] {
         var updatedRecords = records
         if let lastRecord = updatedRecords.last {
-            updatedRecords[updatedRecords.count - 1] = WeightRecord(id: lastRecord.identifier, date: lastRecord.date, weight: lastRecord.weight, weightDifference: .greatestFiniteMagnitude)
+            updatedRecords[updatedRecords.count - 1] = WeightRecord(id: lastRecord.identifier, date: lastRecord.date, weight: lastRecord.weight, weightDifference: nil)
         }
         return updatedRecords
     }

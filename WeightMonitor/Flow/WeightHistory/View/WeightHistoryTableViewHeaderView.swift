@@ -10,7 +10,7 @@ import UIKit
 final class WeightHistoryTableViewHeaderView: UITableViewHeaderFooterView {
     private let historyLabel: UILabel = {
         let label = UILabel()
-        label.text = "История"
+        label.text = Strings.WeightHistory.history
         label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
@@ -18,7 +18,7 @@ final class WeightHistoryTableViewHeaderView: UITableViewHeaderFooterView {
     
     private let weightLabel: UILabel = {
         let label = UILabel()
-        label.text = "Вес"
+        label.text = Strings.WeightHistory.weigth
         label.textColor = .secondaryLabel
         label.alpha = 0.4
         label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
@@ -27,7 +27,7 @@ final class WeightHistoryTableViewHeaderView: UITableViewHeaderFooterView {
     
     private let changeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Изменения"
+        label.text = Strings.WeightHistory.change
         label.textColor = .secondaryLabel
         label.alpha = 0.4
         label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
@@ -36,7 +36,7 @@ final class WeightHistoryTableViewHeaderView: UITableViewHeaderFooterView {
     
     private let dataLabel: UILabel = {
         let label = UILabel()
-        label.text = "Дата"
+        label.text = Strings.WeightHistory.date
         label.textColor = .secondaryLabel
         label.alpha = 0.4
         label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
@@ -56,7 +56,7 @@ final class WeightHistoryTableViewHeaderView: UITableViewHeaderFooterView {
     }
        
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("Unsupported")
     }
     
     private func setupViews() {

@@ -47,7 +47,7 @@ final class WeightHistoryCell: UITableViewCell {
     }()
     private let arrowView: UIImageView = {
         let view = UIImageView()
-        view.image = .arrowRight?
+        view.image = Asset.Assets.arrowRight.image
             .withRenderingMode(.alwaysOriginal)
             .withTintColor(.label)
         view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -64,7 +64,7 @@ final class WeightHistoryCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("Unsupported")
     }
     
     override func layoutSubviews() {

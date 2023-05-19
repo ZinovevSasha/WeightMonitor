@@ -10,19 +10,21 @@ import Foundation
 final class StringFormatter {
     var weightFormatter: NumberFormatter
     var dateFormatter: DateFormatter
+    var messurementFormatter: MeasurementFormatter
     
     init(formatters: Formatters) {
         self.weightFormatter = Formatters.numberFormatter
         self.dateFormatter = Formatters.dateFormatter
+        self.messurementFormatter = Formatters.measurementFormatter
     }
     
     func convertWeightToString(_ weight: Double, for unit: UnitMass) -> String {
         let formattedWeight = formatWeight(weight)
-        let russianTranslation = getUnitName(for: unit)
-        return "\(formattedWeight) \(russianTranslation)"
+        let abbreviation = getUnitName(for: unit)
+        return "\(formattedWeight) \(abbreviation)"
     }
     
-    func convertWeightChangeToString(change: Double, selectedUnitType: UnitMass) -> String {
+    func convertWeightChangeToString(change: Double?, selectedUnitType: UnitMass) -> String {
         let changeString = formatWeight(change)
         let russianTranslation = getUnitName(for: selectedUnitType)
         return combineNumberWithSymbol(change, change: changeString, symbol: russianTranslation)
@@ -38,13 +40,16 @@ final class StringFormatter {
     }
     
     func getUnitName(for unit: UnitMass) -> String {
-        let massUnitSymbols = ["kg": "кг", "lb": "фн"]
-        return massUnitSymbols[unit.symbol] ?? unit.symbol
+        messurementFormatter.unitStyle = .short
+        return messurementFormatter.string(from: unit)
     }
     
     func getUnitSystemName(for unit: UnitMass) -> String {
-        let massUnitSymbols = ["kg": "Метрическая система", "lb": "Английская система мер"]
-        return massUnitSymbols[unit.symbol] ?? "Unknown unit system"
+        let massUnitSymbols = [
+            "kg": Strings.WeightHistory.UnitSystem.metric,
+            "lb": Strings.WeightHistory.UnitSystem.imperial
+        ]
+        return massUnitSymbols[unit.symbol] ?? Strings.WeightHistory.UnitSystem.unknown
     }
     
     func format(text: String, for unit: UnitMass) -> String {
@@ -88,24 +93,26 @@ final class StringFormatter {
  
 // MARK: - Private methods
 private extension StringFormatter {
-    private func formatWeight(_ weight: Double) -> String {
+    func formatWeight(_ weight: Double?) -> String {
+        guard let weight = weight else { return "" }
         return weightFormatter.string(from: NSNumber(value: weight)) ?? ""
     }
     
-    func combineNumberWithSymbol(_ number: Double, change: String, symbol: String) -> String {
-        // this needed to keep first record change showing nil        
-        if number > 0 && number < .greatestFiniteMagnitude {
+    func combineNumberWithSymbol(_ number: Double?, change: String, symbol: String) -> String {
+        guard let number = number else { return "" }
+        
+        if  number > 0 {
             return "+\(change) \(symbol)"
-        } else if number < 0 {
+        } else if  number < 0 {
             return "\(change) \(symbol)"
         } else if number == 0 {
             return "\(change) \(symbol)"
         } else {
-            return ""
+            return "" 
         }
     }
     
-    private func isUserSelectedDayIsToday(_ date: Date) -> Bool {
+    func isUserSelectedDayIsToday(_ date: Date) -> Bool {
         let currentMonth = Calendar.current.component(.month, from: Date())
         let month = Calendar.current.component(.month, from: date)
         let currentYear = Calendar.current.component(.year, from: Date())

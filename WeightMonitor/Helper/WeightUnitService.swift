@@ -26,8 +26,11 @@ final class WeightSystem: WeightUnitServiceProtocol {
     }
     
     func getCurrentUnit() -> UnitMass {
-        if let symbol = userDefaults.string(forKey: Keys.WeightUnit.rawValue) {
-            return UnitMass(symbol: symbol)
+        guard let encodedData = UserDefaults.standard.data(forKey: Keys.WeightUnit.rawValue) else  {
+            return UnitMass.kilograms
+        }
+        if let unitMass = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UnitMass.self, from: encodedData) {
+            return unitMass
         } else {
             return UnitMass.kilograms
         }
@@ -39,6 +42,8 @@ final class WeightSystem: WeightUnitServiceProtocol {
     }
     
     private func updateCurrentUnit(newUnit: UnitMass) {
-        userDefaults.set(newUnit.symbol, forKey: Keys.WeightUnit.rawValue)
+        if let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: newUnit, requiringSecureCoding: false) {        
+            UserDefaults.standard.set(encodedData, forKey: Keys.WeightUnit.rawValue)
+        }
     }
 }

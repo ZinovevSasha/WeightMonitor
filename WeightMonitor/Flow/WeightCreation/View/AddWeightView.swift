@@ -10,7 +10,7 @@ import UIKit
 final class AddWeightViewController: UIViewController {
     private let nameOfScreen: UILabel = {
         let nameOfScreen = UILabel()
-        nameOfScreen.text = "Добавить вес"
+        nameOfScreen.text = Strings.Creation.addWeigtTitle
         nameOfScreen.font = .systemFont(ofSize: 20, weight: .semibold)
         nameOfScreen.textColor = .label
         return nameOfScreen
@@ -19,14 +19,14 @@ final class AddWeightViewController: UIViewController {
     private let dateLabel: UILabel = {
         let date = UILabel()
         date.textColor = .label
-        date.text = "Дата"
+        date.text = Strings.Creation.date
         date.font = .systemFont(ofSize: 17, weight: .medium)
         return date
     }()
     
     private let setDateOfRecordButton: UIButton = {
         let addButton = UIButton()
-        addButton.setTitle("Сегодня", for: .normal)
+        addButton.setTitle(Strings.Creation.today, for: .normal)
         addButton.setTitleColor(.systemIndigo, for: .normal)
         return addButton
     }()
@@ -45,7 +45,7 @@ final class AddWeightViewController: UIViewController {
         let weightTextField = UITextField()
         
         weightTextField.keyboardType = .numberPad
-        weightTextField.placeholder = "Введите вес"
+        weightTextField.placeholder = Strings.Creation.enterWeight
         weightTextField.font = .systemFont(ofSize: 34, weight: .bold)
         weightTextField.backgroundColor = .systemBackground
         return weightTextField
@@ -61,7 +61,7 @@ final class AddWeightViewController: UIViewController {
     
     private let createButton: UIButton = {
         let createButton = UIButton()
-        createButton.setTitle("Добавить", for: .normal)
+        createButton.setTitle(Strings.Creation.add, for: .normal)
         createButton.setTitleColor(.white, for: .normal)
         createButton.backgroundColor = .systemIndigo
         createButton.layer.cornerRadius = 10
@@ -151,10 +151,13 @@ final class AddWeightViewController: UIViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval
                        
+            let bottomInset = view.safeAreaInsets.bottom
+            let newKeyboardHeight = keyboardSize.height - bottomInset
+            
             animateViews(separator2, containerViewForDataPicker,
                          duration: animationDuration ?? 0.3,
                          shouldHide: true,
-                         buttonConstraint: -(keyboardSize.height + 16),
+                         buttonConstraint: -(newKeyboardHeight + 16),
                          datePickerHeight: .zero
             )
         }
@@ -294,8 +297,7 @@ extension AddWeightViewController: UITextFieldDelegate {
         
         // Create a new string by replacing the characters in the specified range with the replacement string
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
-        
-        // Format the updated text using the formatText(_:) function
+                
         let formattedText = viewModel?.formatString(updatedText)
         
         // Set the text field's text to the formatted text

@@ -27,7 +27,10 @@ final class WeightHistoryCellViewModel {
     }
     
     var weightDifference: String {
-        let weightDiff = stringFormatter.convertWeightChangeToString(change: weightRecord.weightDifference, selectedUnitType: weightUnitService.currentUnit)
+        let weightDiff = stringFormatter.convertWeightChangeToString(
+            change: weightRecord.weightDifference,
+            selectedUnitType: weightUnitService.currentUnit
+        )
         return weightDiff
     }
     

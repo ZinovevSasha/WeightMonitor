@@ -11,10 +11,10 @@ struct WeightRecord {
     let identifier: String
     let date: Date
     let weight: Double
-    let weightDifference: Double
+    let weightDifference: Double?
     
     init(id: String = UUID().uuidString, date: Date, weight: Double,
-         weightDifference: Double = .greatestFiniteMagnitude) {
+         weightDifference: Double? = nil) {
         self.date = date
         self.weight = weight
         self.weightDifference = weightDifference

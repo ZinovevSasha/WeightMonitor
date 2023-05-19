@@ -33,12 +33,11 @@ final class CurrentWeightView: UIView {
         textAboutWeightLabel.font = UIFont.systemFont(ofSize: 13, weight: .medium)
         textAboutWeightLabel.textColor = .label
         textAboutWeightLabel.alpha = 0.4
-        textAboutWeightLabel.text = "Текущий вес"
+        textAboutWeightLabel.text = Strings.WeightHistory.currentWeight
         return textAboutWeightLabel
     }()
     
-    private let currentWeightLabel: UILabel = {
-        // Add currentWeight label to stack view
+    private let currentWeightLabel: UILabel = {        
         let currentWeight = UILabel()
         currentWeight.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         currentWeight.textColor = .label
@@ -82,7 +81,7 @@ private extension CurrentWeightView {
     func setupView() {
         self.layer.cornerRadius = 12
         self.layer.masksToBounds = true
-        self.backgroundColor = .currentWeightBackground
+        self.backgroundColor = Asset.Colors.currentWeightBackground.color
         
         currentUnitSystemSwitch.addTarget(self, action: #selector(handleSwitchChange), for: .touchUpInside)
         
