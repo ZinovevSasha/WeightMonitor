@@ -180,7 +180,7 @@ private extension WeightHistoryViewController {
             if !update.deletedIndexes.isEmpty {
                 tableView.deleteRows(at: [update.deletedIndexes], with: .automatic)
             }
-            if !update.deletedIndexes.isEmpty {
+            if !update.deletedSection.isEmpty {
                 tableView.deleteSections(update.deletedSection, with: .automatic)
             }
             if !update.updatedIndexes.isEmpty {

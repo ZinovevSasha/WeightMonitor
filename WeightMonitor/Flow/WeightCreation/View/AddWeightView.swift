@@ -91,9 +91,6 @@ final class AddWeightViewController: UIViewController {
     private var dataPickerContainerViewHeightConstraint: NSLayoutConstraint?
     private let dataPickerContainerViewHeightConstraintConstant: CGFloat = 216
     
-    private var isPossibleToAddRecord: Bool = false
-    private var initialViewFrame: CGRect = .zero
-    
     var viewModel: AddWeightViewModel?
     
     func setViewModel(_ viewModel: AddWeightViewModel) {
@@ -256,7 +253,7 @@ private extension AddWeightViewController {
     }
    
     func setTargets() {
-              datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         setDateOfRecordButton.addTarget(self, action: #selector(handleSetTodayButtonTap), for: .touchUpInside)
         createButton.addTarget(self, action: #selector(handleCreateButtonTap), for: .touchUpInside)
     }

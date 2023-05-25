@@ -43,7 +43,20 @@
 		F9BE32992A04108B0079E485 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE32982A04108B0079E485 /* Formatters.swift */; };
 		F9ED5E982A0521F30016FB35 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ED5E972A0521F30016FB35 /* UIViewController+Extension.swift */; };
 		F9ED5E9A2A054B010016FB35 /* AddWeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ED5E992A054B010016FB35 /* AddWeightViewModel.swift */; };
+		F9F724CB2A1F7C1A007F0F0A /* WeightMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F724CA2A1F7C1A007F0F0A /* WeightMonitorTests.swift */; };
+		F9F724D22A1F7F88007F0F0A /* WeightUnitsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F724D12A1F7F88007F0F0A /* WeightUnitsConverter.swift */; };
+		F9F724D42A1F80D6007F0F0A /* WeightDifferentCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F724D32A1F80D6007F0F0A /* WeightDifferentCalculator.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9F724CC2A1F7C1A007F0F0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F97E3C152A013F75001C252E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F97E3C1C2A013F75001C252E;
+			remoteInfo = WeightMonitor;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2F5C37009FAB4A85CE720DA0 /* Pods_WeightMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +100,10 @@
 		F9BE32982A04108B0079E485 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		F9ED5E972A0521F30016FB35 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F9ED5E992A054B010016FB35 /* AddWeightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightViewModel.swift; sourceTree = "<group>"; };
+		F9F724C82A1F7C1A007F0F0A /* WeightMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9F724CA2A1F7C1A007F0F0A /* WeightMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMonitorTests.swift; sourceTree = "<group>"; };
+		F9F724D12A1F7F88007F0F0A /* WeightUnitsConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnitsConverter.swift; sourceTree = "<group>"; };
+		F9F724D32A1F80D6007F0F0A /* WeightDifferentCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDifferentCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +112,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				691C0F49849EEDE058E1E9C9 /* Pods_WeightMonitor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9F724C52A1F7C1A007F0F0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				F97E3C1F2A013F75001C252E /* WeightMonitor */,
+				F9F724C92A1F7C1A007F0F0A /* WeightMonitorTests */,
 				F97E3C1E2A013F75001C252E /* Products */,
 				9D22C1FD29E3F20439A42C34 /* Pods */,
 				DEE2BD95CE7E7751C89D7C30 /* Frameworks */,
@@ -182,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				F97E3C1D2A013F75001C252E /* WeightMonitor.app */,
+				F9F724C82A1F7C1A007F0F0A /* WeightMonitorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +242,8 @@
 				F9BE32982A04108B0079E485 /* Formatters.swift */,
 				F9BE32962A0410710079E485 /* StringFormatter.swift */,
 				F97E3C5A2A014CC6001C252E /* WeightUnitService.swift */,
+				F9F724D12A1F7F88007F0F0A /* WeightUnitsConverter.swift */,
+				F9F724D32A1F80D6007F0F0A /* WeightDifferentCalculator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -291,6 +319,14 @@
 			path = WeightCreation;
 			sourceTree = "<group>";
 		};
+		F9F724C92A1F7C1A007F0F0A /* WeightMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9F724CA2A1F7C1A007F0F0A /* WeightMonitorTests.swift */,
+			);
+			path = WeightMonitorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,6 +349,24 @@
 			productReference = F97E3C1D2A013F75001C252E /* WeightMonitor.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F9F724C72A1F7C1A007F0F0A /* WeightMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9F724D02A1F7C1A007F0F0A /* Build configuration list for PBXNativeTarget "WeightMonitorTests" */;
+			buildPhases = (
+				F9F724C42A1F7C1A007F0F0A /* Sources */,
+				F9F724C52A1F7C1A007F0F0A /* Frameworks */,
+				F9F724C62A1F7C1A007F0F0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9F724CD2A1F7C1A007F0F0A /* PBXTargetDependency */,
+			);
+			name = WeightMonitorTests;
+			productName = WeightMonitorTests;
+			productReference = F9F724C82A1F7C1A007F0F0A /* WeightMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -325,6 +379,10 @@
 				TargetAttributes = {
 					F97E3C1C2A013F75001C252E = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					F9F724C72A1F7C1A007F0F0A = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = F97E3C1C2A013F75001C252E;
 					};
 				};
 			};
@@ -343,6 +401,7 @@
 			projectRoot = "";
 			targets = (
 				F97E3C1C2A013F75001C252E /* WeightMonitor */,
+				F9F724C72A1F7C1A007F0F0A /* WeightMonitorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -357,6 +416,13 @@
 				F9B9A7912A128DFA00A5BB27 /* Localizable.strings in Resources */,
 				F97E3C2A2A013F77001C252E /* Assets.xcassets in Resources */,
 				F97E3C282A013F75001C252E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9F724C62A1F7C1A007F0F0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +478,7 @@
 				F97E3C252A013F75001C252E /* WeightHistoryViewController.swift in Sources */,
 				F9B4BF2B2A08080400CB2F56 /* UIDate+Extension.swift in Sources */,
 				F9BE328E2A03C6580079E485 /* WeightHistoryTableViewHeaderView.swift in Sources */,
+				F9F724D42A1F80D6007F0F0A /* WeightDifferentCalculator.swift in Sources */,
 				F97E3C5B2A014CC6001C252E /* WeightUnitService.swift in Sources */,
 				F9B9A7972A128F0E00A5BB27 /* Strings+Generated.swift in Sources */,
 				F975E6372A0169EF00DB955C /* CoreDataModel.xcdatamodeld in Sources */,
@@ -434,6 +501,7 @@
 				F975E6442A01A87C00DB955C /* WeightHistoryCellViewModel.swift in Sources */,
 				F9B4BF282A07C64B00CB2F56 /* UserInput.swift in Sources */,
 				F975E63B2A016CEB00DB955C /* DataProvider.swift in Sources */,
+				F9F724D22A1F7F88007F0F0A /* WeightUnitsConverter.swift in Sources */,
 				F9BE32922A03D12A0079E485 /* WeightHistoryHeaderView.swift in Sources */,
 				F975E63D2A016E6D00DB955C /* Context.swift in Sources */,
 				F9BE328A2A02C47A0079E485 /* WeightHistoryRecord.swift in Sources */,
@@ -442,7 +510,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F9F724C42A1F7C1A007F0F0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9F724CB2A1F7C1A007F0F0A /* WeightMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9F724CD2A1F7C1A007F0F0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F97E3C1C2A013F75001C252E /* WeightMonitor */;
+			targetProxy = F9F724CC2A1F7C1A007F0F0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F97E3C262A013F75001C252E /* Main.storyboard */ = {
@@ -653,6 +737,44 @@
 			};
 			name = Release;
 		};
+		F9F724CE2A1F7C1A007F0F0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LQ88P485N9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sanya.WeightMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightMonitor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightMonitor";
+			};
+			name = Debug;
+		};
+		F9F724CF2A1F7C1A007F0F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LQ88P485N9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sanya.WeightMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightMonitor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightMonitor";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -670,6 +792,15 @@
 			buildConfigurations = (
 				F97E3C482A013F78001C252E /* Debug */,
 				F97E3C492A013F78001C252E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9F724D02A1F7C1A007F0F0A /* Build configuration list for PBXNativeTarget "WeightMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9F724CE2A1F7C1A007F0F0A /* Debug */,
+				F9F724CF2A1F7C1A007F0F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

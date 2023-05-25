@@ -8,9 +8,9 @@
 import Foundation
 
 final class StringFormatter {
-    var weightFormatter: NumberFormatter
-    var dateFormatter: DateFormatter
-    var messurementFormatter: MeasurementFormatter
+    private var weightFormatter: NumberFormatter
+    private var dateFormatter: DateFormatter
+    private var messurementFormatter: MeasurementFormatter
     
     init(formatters: Formatters) {
         self.weightFormatter = Formatters.numberFormatter

@@ -18,7 +18,7 @@ final class WeightSystem: WeightUnitServiceProtocol {
     private init() {}
     
     private let userDefaults = UserDefaults.standard
-    
+  
     var currentUnit = UnitMass.kilograms {
         didSet {
             updateCurrentUnit(newUnit: currentUnit)

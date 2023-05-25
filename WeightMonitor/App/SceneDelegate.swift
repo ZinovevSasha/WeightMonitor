@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let weightHistoryViewController = WeightHistoryViewController()
-        let weightHistoryViewModel = WeightHistoryViewModel(weightUnitService: WeightSystem.shared)
+        let weightHistoryViewModel = WeightHistoryViewModel(weightUnitService: WeightSystem.shared, weightUnitConverter: WeightUnitConverter(), weightDifferentCalculator: WeightDifferentCalculator())
         weightHistoryViewController.setViewModel(weightHistoryViewModel)
         
         window.rootViewController = weightHistoryViewController

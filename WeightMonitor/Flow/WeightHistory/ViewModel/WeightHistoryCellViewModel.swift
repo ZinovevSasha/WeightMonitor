@@ -9,7 +9,7 @@ import Foundation
 
 final class WeightHistoryCellViewModel {
     private let weightRecord: WeightRecord
-    private var weightUnitService: WeightSystem
+    private let weightUnitService: WeightSystem
     private let stringFormatter: StringFormatter
     
     init(weightRecord: WeightRecord,

@@ -45,13 +45,14 @@ extension WeightRecordStore {
         saveContext()
     }
     
-    func update(_ record:  WeightRecordCoreData,
+    // Private
+    private func update(_ record:  WeightRecordCoreData,
                       with newRecord: WeightRecord) {
         record.weight = newRecord.weight
         record.date = newRecord.date
     }
     
-    func saveContext() {
+    private func saveContext() {
         do {
             try context.save()
         } catch {

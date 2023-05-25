@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct WeightRecord {
+struct WeightRecord: Equatable {
+    static func == (lhs: WeightRecord, rhs: WeightRecord) -> Bool {
+        return lhs.weight == rhs.weight && lhs.weightDifference == rhs.weightDifference
+        || (lhs.weightDifference == nil && rhs.weightDifference == nil)
+    }
+    
     let identifier: String
     let date: Date
     let weight: Double
